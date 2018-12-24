@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ASmeet6-Fragments</string>
+    <string name="edit_text_label">Edit text (from service)</string>
+    <string name="edit_text_value">Some text from service</string>
+    <string name="create_fragment3">Create Fragment #3</string>
+    <string name="subtitle_text">Fragments Sample</string>
+</resources>
