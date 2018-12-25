@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity implements Fragment2_Button.
     protected void onStop() {
         super.onStop();
         Log.d(TAG, " onStop");
-        startService(TextService.newIntent(MainActivity.this, Command.STOP));
     }
 
     @Override

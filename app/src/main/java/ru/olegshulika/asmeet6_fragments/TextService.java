@@ -38,7 +38,7 @@ public class TextService extends Service {
     private LocalBroadcastManager localBroadcastManager;
 
     @Override
-    public int onStartCommand(Intent intent, int flags, final int startId) {
+    public synchronized int onStartCommand(Intent intent, int flags, final int startId) {
         Log.d(TAG, " onStartCommand "+flags+" "+startId);
         switch (getCommand(intent)) {
             case Command.START:
@@ -95,11 +95,6 @@ public class TextService extends Service {
         intent.putExtra(KEY_COMMAND, serviceCommand);
         return intent;
     }
-
-    public static final Intent newIntent(Context context){
-        return new Intent(context, TextService.class);
-    }
-
 
     public int getCommand (Intent intent) {
         return intent.getIntExtra(KEY_COMMAND, Command.INVALID);

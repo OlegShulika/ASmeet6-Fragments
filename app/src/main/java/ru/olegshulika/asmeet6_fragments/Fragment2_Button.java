@@ -36,6 +36,7 @@ public class Fragment2_Button extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, " onCreate");
+        setRetainInstance(true);
     }
 
     @Override
