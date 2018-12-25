@@ -37,9 +37,10 @@ public class Fragment3_TextView extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         Log.d(TAG, " onCreateView");
-        mTextView = new TextView(getActivity());
-        mTextView.setBackgroundColor(getResources().getColor(R.color.colorF3));
-        mTextView.setVerticalScrollBarEnabled(true);
+        if (mTextView==null) {
+            mTextView = new TextView(getActivity());
+            mTextView.setBackgroundColor(getResources().getColor(R.color.colorF3));
+        }
 
         return mTextView;
     }
