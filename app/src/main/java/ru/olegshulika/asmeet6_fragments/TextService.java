@@ -24,8 +24,8 @@ public class TextService extends Service {
     private static final String TAG = "_TextService";
     private static final int MODE = Service.START_NOT_STICKY;
     private static final String KEY_COMMAND = "text.service.cmd";
-    private static final int SERVICE_WORKCOUNT_LIMIT = 900;     // 900 sec (15 min)
-    private static final int SERVICE_SLEEP_TIME = 1000;         // wait 1 sec
+    private static final int SERVICE_WORKTIME_LIMIT = 1800000;     // 30 min
+    private static final int SERVICE_SLEEP_TIME = 1000;            // wait 1 sec
 
     private boolean serviceStarted = false;
     private boolean isServiceStarted() {
@@ -67,8 +67,9 @@ public class TextService extends Service {
             @Override
             public void run() {
                 setServiceStarted(true);
-                int workTime=SERVICE_WORKCOUNT_LIMIT;
-                while (--workTime>0 && isServiceStarted()){
+                int workTime=SERVICE_WORKTIME_LIMIT;
+                while (workTime>0 && isServiceStarted()){
+                    workTime -= SERVICE_SLEEP_TIME;
                     try {
                         Thread.sleep(SERVICE_SLEEP_TIME);
                         sendLocalBroadcast(System.currentTimeMillis());

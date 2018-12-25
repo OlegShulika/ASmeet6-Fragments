@@ -15,6 +15,7 @@ public class Fragment1_EditText extends Fragment {
     private EditText mEditText;
 
     public void setEditTextValue(String editTextValue) { mEditText.setText(editTextValue); }
+    public String getEditTextValue() { return mEditText.getText().toString(); }
 
     public Fragment1_EditText() {
         // Required empty public constructor

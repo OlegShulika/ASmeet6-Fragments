@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity implements Fragment2_Button.OnF2ButtonPressedListener {
     private static final String TAG = "MainActivity";
     private LocalBroadcastManager localBroadcastManager;
@@ -23,9 +25,11 @@ public class MainActivity extends AppCompatActivity implements Fragment2_Button.
             String action = intent.getAction();
             Log.d(TAG,"onReceive "+action);
             if(TextService.KEY_BROADCAST.equals(action)) {
-                long sysTime = intent.getLongExtra(TextService.KEY_TIME, 0);
-                Fragment fragment = getFragmentManager().findFragmentByTag("ru.olegshulika.asmeet6_fragments.Fragment1_EditText");
-                //((EditText)fragment.getView().findViewById(R.id.fragment1_text)).setText("time="+sysTime);
+                String sysTime = "time="+intent.getLongExtra(TextService.KEY_TIME, 0);
+                Fragment1_EditText fragment1 = (Fragment1_EditText)getSupportFragmentManager().findFragmentById(R.id.fragment_1);
+                fragment1.setEditTextValue(sysTime);
+                Fragment2_Button fragment2 = (Fragment2_Button)getSupportFragmentManager().findFragmentById(R.id.fragment_2);
+                fragment2.setTextValue(sysTime);
             }
         }
     };

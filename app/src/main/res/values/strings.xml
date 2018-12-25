@@ -4,4 +4,7 @@
     <string name="edit_text_value">Some text from service</string>
     <string name="create_fragment3">Create Fragment #3</string>
     <string name="subtitle_text">Fragments Sample</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
